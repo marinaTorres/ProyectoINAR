@@ -12,10 +12,10 @@ export class AppComponent {
   constructor(private _weather:infoService ){}
 
   ngOnInit(){
-    this._weather.questions()
+    /*this._weather.questions()
       .subscribe(res=>{
         console.log(res)
-      })
+      })*/
     this._weather.dailyForecast()
       .subscribe(res => { 
         let temp_max = res['list'].map(res => res.main.temp_max)
