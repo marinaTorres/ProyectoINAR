@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WeatherService } from './weather.service';
+import { infoService } from './info.service';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -9,9 +9,13 @@ import { Chart } from 'chart.js';
 })
 export class AppComponent {
   chart = [];
-  constructor(private _weather:WeatherService ){}
+  constructor(private _weather:infoService ){}
 
   ngOnInit(){
+    this._weather.questions()
+      .subscribe(res=>{
+        console.log(res)
+      })
     this._weather.dailyForecast()
       .subscribe(res => { 
         let temp_max = res['list'].map(res => res.main.temp_max)
