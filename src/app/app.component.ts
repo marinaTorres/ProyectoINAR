@@ -16,8 +16,8 @@ export class AppComponent {
       .subscribe(res=>{
         console.log(res)
       })*/
-    this._weather.dailyForecast()
-      .subscribe(res => { 
+    this._weather.getData()
+      .subscribe(res => {
         let temp_max = res['list'].map(res => res.main.temp_max)
         let temp_min = res['list'].map(res => res.main.temp_min)
         let alldates = res['list'].map(res => res.dt)
